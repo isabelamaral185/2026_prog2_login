@@ -31,7 +31,7 @@ public class Principal extends javax.swing.JFrame {
         this.usuario = usuario;
         labEmail.setText(usuario.getEmail());
         labSenha.setText(usuario.getSenha());
-        labIdade.setText(String.valueOf((char) usuario.getIdade()));
+        labIdade.setText(String.valueOf(usuario.getIdade()));
     }
 
     @SuppressWarnings("unchecked")

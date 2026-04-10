@@ -94,4 +94,8 @@ public class Usuario {
         return "Usuario{" + "email=" + email + ", senha=" + senha + ", idade=" + idade + '}';
     } // Vai mostrar todos os dados daquele objeto.
 */
+
+    Object getIdade() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

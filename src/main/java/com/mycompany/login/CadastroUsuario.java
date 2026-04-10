@@ -4,17 +4,22 @@
  */
 package com.mycompany.login;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Aluno
  */
 public class CadastroUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastroUsuario
-     */
-    public CadastroUsuario() {
+    private ArrayList<Usuario> listaUsuario;
+    
+    public CadastroUsuario(){
+    }
+    
+    public CadastroUsuario(ArrayList<Usuario> listaUsuario) {
         initComponents();
+        this.listaUsuario = listaUsuario;
     }
 
     /**
@@ -64,6 +69,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         btnSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -140,6 +150,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pswSenhaActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        listaUsuario.add(retornaUsuario());
+        
+        new Login(listaUsuario).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,4 +205,17 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+    private Usuario retornaUsuario(){
+        String nome = txtNome.getText();
+        String email = txtEmail.getText();
+        String senha = String.valueOf(pswSenha.getPassword());
+        
+        Usuario usuario = new Usuario();
+        
+        usuario.setNome(nome);
+        usuario.setEmail(email);
+        usuario.setSenha(senha);
+                
+        return usuario;
+    }
 }
